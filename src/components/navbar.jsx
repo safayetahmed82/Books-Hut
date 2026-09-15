@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React from "react";
 import { usePathname } from "next/navigation";
 import { Fraunces, Poppins } from "next/font/google";
@@ -15,7 +15,7 @@ const poppins = Poppins({
 // className={poppins.className}
 
 const Navbar = () => {
-    const pathName = usePathname();
+  const pathName = usePathname();
   return (
     <>
       <nav className="flex items-center justify-between border-b border-[#D9D3C5] px-6 py-5   w-full mx-auto bg-[#F6F3EC]">
@@ -26,19 +26,31 @@ const Navbar = () => {
         <div className=" flex navbar-center  ">
           <li className=" flex gap-10">
             <Link
-              className={pathName === "/home" ? "text-white bg-[#3F5C4A] px-4 py-2 rounded" : "px-4 py-2 "}
+              className={
+                pathName === "/home"
+                  ? "text-white bg-[#3F5C4A] px-4 py-2 rounded"
+                  : "px-4 py-2 "
+              }
               href="/home"
             >
               Home
             </Link>
             <Link
-              className={pathName === "/allbooks" ? "text-white bg-[#3F5C4A] px-4 py-2 rounded  " : "px-4 py-2 "}
+              className={
+                pathName === "/allbooks"
+                  ? "text-white bg-[#3F5C4A] px-4 py-2 rounded  "
+                  : "px-4 py-2 "
+              }
               href="/allbooks"
             >
               All Books
             </Link>
             <Link
-              className={pathName === "/profile" ? "text-white bg-[#3F5C4A] px-4 py-2 rounded" : "px-4 py-2 "}
+              className={
+                pathName === "/profile"
+                  ? "text-white bg-[#3F5C4A] px-4 py-2 rounded"
+                  : "px-4 py-2 "
+              }
               href="/profile"
             >
               Profile
@@ -46,19 +58,26 @@ const Navbar = () => {
           </li>
         </div>
         <div className=" flex navbar-end gap-4">
-            <Link
-              className={pathName === "/home" ? "text-white bg-[#3F5C4A] px-4 py-2 rounded" : "px-4 py-2 "}
-              href="/home"
-            >
-              Login
-            </Link>
-            <Link
-              className={pathName === "/home" ? "text-white bg-[#3F5C4A] px-4 py-2 rounded" : "px-4 py-2 "}
-              href="/home"
-            >
-              Register
-            </Link>
-
+          <Link
+            className={
+              pathName === "/login"
+                ? "text-white bg-[#3F5C4A] px-4 py-2 rounded"
+                : "px-4 py-2 "
+            }
+            href="/login"
+          >
+            Login
+          </Link>
+          <Link
+            className={
+              pathName === "/register"
+                ? "text-white bg-[#3F5C4A] px-4 py-2 rounded"
+                : "px-4 py-2 "
+            }
+            href="/register"
+          >
+            Register
+          </Link>
         </div>
       </nav>
     </>

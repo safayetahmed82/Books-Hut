@@ -39,6 +39,13 @@ const BooksDetails = async ({ params }) => {
 
             <div className="mt-6">
               <span className="text-lg text-[#B8925A]">★ {book.rating}</span>
+
+              <p className="mt-2 text-sm text-[#6B7A70]">
+                Available:{" "}
+                <span className="font-medium text-[#3F5C4A]">
+                  {book.available_quantity}
+                </span>
+              </p>
             </div>
 
             <p className="mt-6 leading-7 text-[#555]">{book.description}</p>

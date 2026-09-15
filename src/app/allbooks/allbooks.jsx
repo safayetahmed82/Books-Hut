@@ -14,6 +14,7 @@ const AllBooks = () => {
     const fetchBooks = async () => {
       const res = await fetch("http://localhost:3000/books.json");
       const data = await res.json();
+
       setBooks(data);
     };
 
@@ -61,17 +62,25 @@ const AllBooks = () => {
                   <p className="mt-1 text-sm text-[#6B7A70]">{book.author}</p>
 
                   <div className="mt-4 flex items-center justify-between">
-                    <span className="text-sm text-[#B8925A]">
-                      ★ {book.rating}
-                    </span>
+                    <div>
+                      <span className="text-sm text-[#B8925A]">
+                        ★ {book.rating}
+                      </span>
 
-                    <a href="#" className="text-sm font-medium text-[#3F5C4A]">
-                      <Link href={`/allbooks/${book.id}`}>
-                        <button className="btn bg-[#3F5C4A] text-white">
-                          View Details →
-                        </button>
-                      </Link>
-                    </a>
+                      <p className="mt-4 text-sm text-[#6B7A70]">
+                        Available:{" "}
+                        <span className="font-medium text-[#3F5C4A]">
+                          {book.available_quantity}
+                        </span>
+                      </p>
+                    </div>
+
+                    <Link
+                      href={`/allbooks/${book.id}`}
+                      className="btn bg-[#3F5C4A] text-white"
+                    >
+                      View Details →
+                    </Link>
                   </div>
                 </div>
               </div>

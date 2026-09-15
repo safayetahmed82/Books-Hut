@@ -1,8 +1,8 @@
 "use client";
 
-const Sidebar = ({ setCategory }) => {
+const Sidebar = ({ setCategory, setSearch }) => {
   return (
-    <aside className="w-full rounded-xl border border-[#E2DED4] bg-[#F5F1E8] p-5 lg:w-50 h-90">
+    <aside className="w-full rounded-xl border border-[#E2DED4] bg-[#F5F1E8] p-5 lg:w-50 h-95">
       <h2
         className="mb-5 text-xl"
         style={{
@@ -46,15 +46,18 @@ const Sidebar = ({ setCategory }) => {
         >
           Romance
         </button>
+        <input
+          type="text"
+          placeholder="Search books..."
+          onChange={(e) => setSearch(e.target.value)}
+          className='rounded-lg border border-[#D8D1C4] bg-white px-4 py-2 text-left text-sm font-medium text-[#3F5C4A] transition hover:bg-[#B8925A] hover:text-white'
+        />
       </div>
     </aside>
   );
 };
 
 export default Sidebar;
-
-
-
 
 // import React from "react";
 

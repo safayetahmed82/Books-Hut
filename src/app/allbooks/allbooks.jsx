@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
@@ -7,6 +8,7 @@ import Sidebar from "./sidebar";
 const AllBooks = () => {
   const [books, setBooks] = useState([]);
   const [category, setCategory] = useState("All");
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     const fetchBooks = async () => {
@@ -20,12 +22,16 @@ const AllBooks = () => {
 
   return (
     <div className="flex w-11/12 mx-auto flex-col gap-8 py-10 lg:flex-row">
-      <Sidebar setCategory={setCategory} />
+      <Sidebar setCategory={setCategory} setSearch={setSearch} />
 
       <div className="flex-1">
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
           {books
-            .filter((book) => category === "All" || book.category === category)
+            .filter(
+              (book) =>
+                (category === "All" || book.category === category) &&
+                book.title.toLowerCase().includes(search.toLowerCase()),
+            )
             .map((book) => (
               <div
                 key={book.id}
@@ -60,7 +66,11 @@ const AllBooks = () => {
                     </span>
 
                     <a href="#" className="text-sm font-medium text-[#3F5C4A]">
-                      Borrow →
+                      <Link href={`/allbooks/${book.id}`}>
+                        <button className="btn bg-[#3F5C4A] text-white">
+                          View Details →
+                        </button>
+                      </Link>
                     </a>
                   </div>
                 </div>

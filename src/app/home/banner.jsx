@@ -3,6 +3,12 @@ import React from "react";
 const Banner = () => {
   return (
     <>
+      <div className="overflow-hidden bg-[#B8925A] text-[#3F5C4A] py-2">
+        <div className="whitespace-nowrap animate-marquee">
+          📚 10% OFF ON NEW ARRIVALS &nbsp; • &nbsp; 📚 10% OFF ON NEW ARRIVALS
+          &nbsp; • &nbsp; 📚 10% OFF ON NEW ARRIVALS
+        </div>
+      </div>
       <section className="grid gap-10 border-b border-[#D9D3C4] px-6 py-16 sm:px-12 sm:py-20 md:grid-cols-[1.1fr_0.9fr] md:items-center w-13/14 mx-auto">
         <div>
           <h1

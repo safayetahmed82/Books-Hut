@@ -1,10 +1,9 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import books from "@/data/books.json";
 
-const NewArrival = async () => {
-  const res = await fetch("http://localhost:3000/books.json");
-  const books = await res.json();
+const NewArrival = () => {
   const topBooks = books.filter((book) => book.rating >= 4.9);
   return (
     <>

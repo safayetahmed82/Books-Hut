@@ -1,25 +1,13 @@
 "use client";
 import Link from "next/link";
-
-import React, { useEffect, useState } from "react";
+import books from "@/data/books.json";
+import React, { useState } from "react";
 import Image from "next/image";
 import Sidebar from "./sidebar";
 
 const AllBooks = () => {
-  const [books, setBooks] = useState([]);
   const [category, setCategory] = useState("All");
   const [search, setSearch] = useState("");
-
-  useEffect(() => {
-    const fetchBooks = async () => {
-      const res = await fetch("http://localhost:3000/books.json");
-      const data = await res.json();
-
-      setBooks(data);
-    };
-
-    fetchBooks();
-  }, []);
 
   return (
     <div className="flex w-11/12 mx-auto flex-col gap-8 py-10 lg:flex-row">

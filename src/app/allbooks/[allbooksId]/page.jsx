@@ -1,9 +1,8 @@
 import React from "react";
+import books from "@/data/books.json";
 
 const BooksDetails = async ({ params }) => {
   const { allbooksId } = await params;
-  const res = await fetch("http://localhost:3000/books.json");
-  const books = await res.json();
   const book = books.find((book) => book.id.toString() === allbooksId);
 
   return (

@@ -1,7 +1,19 @@
 import React from "react";
+import { redirect } from "next/navigation";
+import { headers } from "next/headers";
+import { auth } from "@/lib/auth";
 import books from "@/data/books.json";
+import BorrowButton from "./borrow-button";
 
 const BooksDetails = async ({ params }) => {
+  const session = await auth.api.getSession({
+    headers: await headers(),
+  });
+
+  if (!session) {
+    redirect("/login");
+  }
+
   const { allbooksId } = await params;
   const book = books.find((book) => book.id.toString() === allbooksId);
 
@@ -49,9 +61,7 @@ const BooksDetails = async ({ params }) => {
 
             <p className="mt-6 leading-7 text-[#555]">{book.description}</p>
 
-            <button className="mt-8 w-fit rounded-lg bg-[#3F5C4A] px-6 py-3 text-sm font-medium text-white hover:bg-[#334B3D]">
-              Borrow This Book
-            </button>
+            <BorrowButton/>
           </div>
         </div>
       </div>

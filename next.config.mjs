@@ -8,6 +8,7 @@ const nextConfig = {
       },
     ],
   },
+  transpilePackages: ["swiper"],
 };
 
 export default nextConfig;
